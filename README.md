@@ -1,11 +1,10 @@
 # Công cụ hỗ trợ tạo bài trên Themis
 
 ## Giới thiệu
-Công cụ này giúp bạn tạo ra các bài test nhanh chóng và hiệu quả trên nền tảng Themis. Với công cụ này, bạn có thể dễ dàng thiết lập và quản lý các bài kiểm tra của mình.
+Với công cụ, bạn có thể tạo ra các bài test một cách nhanh chóng và tiện lợi trên nền tảng Python. Với công cụ này, bạn có thể dễ dàng kiểm soát các test va số lượng hay tên của nó.
 
 ## Tính năng
 - Tạo bài kiểm tra nhanh chóng.
-- Tích hợp dễ dàng với Themis.
 
 ## Lưu ý
 Code hiện tại vẫn còn nhiều thiếu sót, mong mọi người thông cảm và đóng góp ý kiến để cải thiện công cụ này.
