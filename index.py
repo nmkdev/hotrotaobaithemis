@@ -1,9 +1,11 @@
 import os
 import subprocess
 import random
+import platform
 
 def cls():
-    os.system('cls')
+    """Hàm để xóa màn hình."""
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 def generate_random_name(existing_names, length=5):
     """Hàm để tạo tên ngẫu nhiên gồm các chữ số, không trùng với tên đã có."""
@@ -71,15 +73,32 @@ def create_test_directories():
             input_file_path = os.path.join(sub_folder_path, input_file_name)
             output_file_path = os.path.join(sub_folder_path, output_file_name)
             print(f"Đang mở tệp '{input_file_path}'...")
-            subprocess.Popen(['notepad.exe', input_file_path])
+
+            # Mở file với notepad trên Windows hoặc với nano/gedit trên Linux/macOS
+            if os.name == 'nt':
+                subprocess.Popen(['notepad.exe', input_file_path])
+            elif platform.system() == 'Darwin':  # macOS
+                subprocess.Popen(['open', input_file_path])
+            else:  # Linux
+                subprocess.Popen(['xdg-open', input_file_path])
+                
             input("Nhấn phím 'Enter' để tiếp tục...")
             cls()
-            print(f"Đang mở tệp '{input_file_path}'...")
-            subprocess.Popen(['notepad.exe', output_file_path])
+            
+            print(f"Đang mở tệp '{output_file_path}'...")
+
+            # Mở file với notepad trên Windows hoặc với nano/gedit trên Linux/macOS
+            if os.name == 'nt':
+                subprocess.Popen(['notepad.exe', output_file_path])
+            elif platform.system() == 'Darwin':  # macOS
+                subprocess.Popen(['open', output_file_path])
+            else:  # Linux
+                subprocess.Popen(['xdg-open', output_file_path])
+
             input("Nhấn phím 'Enter' để tiếp tục...")
             cls()
 
 if __name__ == "__main__":
     cls()
     create_test_directories()
-    os.startfile("")
+    os.startfile("")  # Mở thư mục hiện tại
